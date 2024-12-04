@@ -1,0 +1,50 @@
+* {
+	font-family: Book Antiqua, Georgia, serif;
+	color: white
+}
+body {
+	background-image: url("assets/background.jpg");
+	background-size: 100% 100%;
+	background-attachment: fixed
+}
+#maintable {
+	width: 65%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.box {
+	text-align: center;
+	border-radius: 20px;
+	overflow: hidden;
+	width: 100%;
+	background-color: rgb(0, 0, 0, 83%);
+	padding: 15px;
+	margin-bottom: 35px
+}
+h4 {
+	margin: 10px 50px;
+}
+#ostlist {
+	border-collapse: collapse;
+	border: 1px solid gray;
+	width: 100%;
+	border-spacing: 0px
+}
+#ostlist tr, #ostlist td {
+	border: 1px solid gray
+}
+#ostlist td:nth-child(2) {
+	padding: 4px;
+	border-width: 0px
+}
+#ostlist td:nth-child(3) {
+	border-width: 0px
+}
+.audio {
+	background-color: rgb(210, 210, 210, 20%)
+}
+audio {
+	display: block;
+	height: 30px;
+	width: 100%;
+}
