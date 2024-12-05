@@ -21,46 +21,67 @@
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=2PVnTuUQ2V8">001 Cat Problem I - IV</a></td>
 				<td width="49%"><audio controls src="assets/KITR of Heaven - 001 Cat Problem I - IV.mp3"></td>
-				<td width="6%"><a href="assets/KITR of Heaven - 001 Cat Problem I - IV.mp3" download="KITR of Heaven - 001 Cat Problem I - IV.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td width="6%"><a href="assets/KITR of Heaven - 001 Cat Problem I - IV.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@IfeelNotSafe">Human</td>
 			</tr>
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=xyhkn03RN9o">002: Screaming and Praying to the Claws That Get Into the Flesh</a></td>
 				<td><audio controls src="assets/KITR of Heaven - 002_ Screaming and Praying to the Claws That Get Into the Flesh.mp3"></td>
-				<td><a href="assets/KITR of Heaven - 002_ Screaming and Praying to the Claws That Get Into the Flesh.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td><a href="assets/KITR of Heaven - 002_ Screaming and Praying to the Claws That Get Into the Flesh.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@ddduv">Duv</td>
 			</tr>
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=xn5P059PbRU">003: KITR of Destiny, Purr This World Away</a></td>
 				<td><audio controls src="assets/KITR of Heaven - 003_ KITR of Destiny, Purr This World Away.mp3"></td>
-				<td><a href="assets/KITR of Heaven - 003_ KITR of Destiny, Purr This World Away.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td><a href="assets/KITR of Heaven - 003_ KITR of Destiny, Purr This World Away.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@Raifuuuuu">Raifu</td>
 			</tr>
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=OBnhDr0zwFw">004: We Shall Draw From the Meow of KITR</a></td>
 				<td><audio controls src="assets/KITR of Heaven - 004_ We Shall Draw From the Meow of KITR.mp3"></td>
-				<td><a href="assets/KITR of Heaven - 004_ We Shall Draw From the Meow of KITR.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td><a href="assets/KITR of Heaven - 004_ We Shall Draw From the Meow of KITR.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@ddduv">Duv</td>
 			</tr>
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=7X4VibzgP54">005 Nothing Like a Good Hot Bath to Make One Feel Like a KITR</a></td>
 				<td><audio controls src="assets/KITR of Heaven - 005 Nothing Like a Good Hot Bath to Make One Feel Like a KITR.mp3"></td>
-				<td><a href="assets/KITR of Heaven - 005 Nothing Like a Good Hot Bath to Make One Feel Like a KITR.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td><a href="assets/KITR of Heaven - 005 Nothing Like a Good Hot Bath to Make One Feel Like a KITR.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@IfeelNotSafe">Human</td>
 			</tr>
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=oULuCorJiVw">006: Where the Dreamed and KITR ferry their souls in the black and seamless</a></td>
 				<td><audio controls src="assets/KITR of Heaven - 006 Where the Dreamed and KITR ferry their souls in the black and seamless sea.mp3"></td>
-				<td><a href="assets/KITR of Heaven - 006 Where the Dreamed and KITR ferry their souls in the black and seamless sea.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td><a href="assets/KITR of Heaven - 006 Where the Dreamed and KITR ferry their souls in the black and seamless sea.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@Raifuuuuu">Raifu</td>
 			</tr>
 			<tr>
 				<td><a target="_blank" href="https://www.youtube.com/watch?v=XMs3fdieUgw">007: Did She Eep Too Deep, or Not Deep Enough?</a></td>
 				<td><audio controls src="assets/KITR of Heaven - 007 Did She Eep Too Deep, or Not Deep Enough.mp3"></td>
-				<td><a href="assets/KITR of Heaven - 007 Did She Eep Too Deep, or Not Deep Enough.mp3"><img src="assets/download.png" width="30" height="30"></a></td>
+				<td><a href="assets/KITR of Heaven - 007 Did She Eep Too Deep, or Not Deep Enough.mp3" class="download-link"><img src="assets/download.png" width="30" height="30"></a></td>
 				<td><a target="_blank" href="https://www.youtube.com/@Spicy67">Spicy67</td>
 			</tr>
 		</table>
 		</div>
-	</td></tr></table></body>
+	</td></tr></table>
+	<script>
+	var downloadLinks = document.querySelectorAll('.download-link');
+	downloadLinks.forEach(function(link) {
+	link.addEventListener('click', function(event) {
+	event.preventDefault();
+	var fileUrl = link.href;
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", fileUrl, true);
+	xhr.responseType = "blob";
+	xhr.onload = function() {
+	var url = window.URL.createObjectURL(xhr.response);
+	var a = document.createElement("a");
+	a.href = url;
+	a.download = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+	a.click();
+	window.URL.revokeObjectURL(url);
+	};
+	xhr.send();
+	});
+	});
+	</script></body>
 </html>
