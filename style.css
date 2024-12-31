@@ -8,7 +8,7 @@ body {
 	background-attachment: fixed
 }
 a {
-	text-decoration: none
+	text-decoration: underline
 }
 a:hover {
 	color: gray
