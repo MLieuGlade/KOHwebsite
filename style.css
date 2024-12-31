@@ -11,7 +11,7 @@ a {
 	text-decoration: underline
 }
 a:hover {
-	color: yellow
+	color: gray
 }
 #maintable {
 	width: 65%;
