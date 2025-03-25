@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
-UPPLOAD_FOLDER = 'C:/Users/gentelmeenFrUK/PycharmProjects/PythonProject/images'
+UPPLOAD_FOLDER = 'images'
 TARGET_URL = "http://localhost:5000/"
 
 
@@ -90,5 +90,5 @@ def upload_image():
     files = {}
     response = requests.post(TARGET_URL, files = files)
 
-    return jsonify({'result': "C:/Users/gentelmeenFrUK/PycharmProjects/PythonProject/watermark.jpg"}), 200
+    return jsonify({'result': "watermark.jpg"}), 200
 
