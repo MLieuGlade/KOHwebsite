@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Сайт по защите интеллектуальной собственности в интернете </title>
+        <link rel="stylesheet" href="style (4).css">
+    </head>
+    <body>
+        <div id="za">Защита интеллектуальной собственности в интернете</div>
+        <div id="foto">
+            <p id="zg">Выберите файл</p>
+            <input type="file" id="imageInput" accept="image/jpeg">
+            
+            <label for="watermark-file">Выберите файл водяного знака:</label>
+            <input type="file" id="watermark-file" accept="image/*">
+
+            <label for="watermark-position">Выберите позицию водяного знака:</label>
+            <select id="watermark-position">
+              <option value="left_up">Верхний левый</option>
+              <option value="right_up">Верхний правый</option>
+              <option value="center">Центр</option>
+              <option value="left_down">Нижний левый</option>
+              <option value="right_down">Нижний правый</option>
+            </select>
+
+            
+
+            <div id="document-container">
+              <img id="watermark" alt="Водяной знак">
+            </div>
+            <label for="watermark-opacity">Выберите прозрачность водяного знака:</label>
+            <input type="range" id="watermark-opacity" min="0" max="1" step="0.01" value="0.5">
+            <button id="upload">Upload</button>
+            <a href="C:/Users/gentelmeenFrUK/PycharmProjects/PythonProject/watermark.jpg">Скачать (Нажать после обработки изображения)</a>
+        </div>
+        
+        <script>
+            document.getElementById("upload").addEventListener("click", function() {
+              const imageInput = document.getElementById("imageInput");
+              const file = imageInput.files[0];
+              const imageWatermark = document.getElementById("watermark-file");
+              const fileWatermark = imageWatermark.files[0];
+              const statusElement = document.getElementById("status");
+              const opacity = document.getElementById("watermark-opacity").value;
+              const position = document.getElementById("watermark-position").value;
+        
+              if (!file) {
+                statusElement.textContent = "Please select an image.";
+                return;
+              }
+        
+              const formData = new FormData();
+              formData.append("image", file);
+              formData.append("watermark", fileWatermark);
+              formData.append("opacity", opacity);
+              formData.append("position", position);
+        
+              const response = fetch("http://localhost:5000/imagepost", {
+                method: "POST",
+                body: formData
+              })
+              .then(response => {
+                if (!response.ok) {  
+                  statusElement.textContent = ""
+                  throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then(data => {
+                statusElement.textContent = data.message;
+              })
+              .catch(error => {
+                statusElement.textContent = statusElement.textContent + "Error uploading image: " + error;
+              });
+
+            });
+            const watermarkFile = document.getElementById("watermark-file");
+            const watermarkPosition = document.getElementById("watermark-position");
+            const watermarkOpacity = document.getElementById("watermark-opacity");
+            const watermark = document.getElementById("watermark");
+            
+
+
+            watermarkFile.addEventListener("change", (event) => {
+              const file = event.target.files[0];
+              if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                  watermark.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+              }
+            });
+
+            watermarkPosition.addEventListener("change", () => {
+              watermark.className = "";
+              watermark.classList.add(watermarkPosition.value);
+            });
+
+            watermarkOpacity.addEventListener("input", () => {
+              watermark.style.opacity = watermarkOpacity.value;
+            });
+
+        
+        </script>
+    </body>
+</html>
